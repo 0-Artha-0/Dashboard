@@ -197,8 +197,8 @@ const UserChart = new Chart(UserCtx, {
         datasets: [{
             label: 'Average User Types',
             data: userTypesData,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: ['rgba(255, 99, 132, 0.2)','rgb(255, 247, 99, 0.2)', 'rgb(99, 229, 255, 0.2)', 'rgb(172, 255, 99, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)', 'rgb(255, 247, 99)', 'rgb(99, 229, 255)', 'rgb(172, 255, 99)'],
             borderWidth: 2,
             tension: 0.2
         }]
@@ -339,4 +339,3 @@ const FeatureChart = new Chart(FeatureCtx, {
         }
     }
 });
-
