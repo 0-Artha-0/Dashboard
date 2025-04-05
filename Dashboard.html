@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics Dashboard</title>
+  <!-- Include Chart.js from CDNv-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+        background-color:rgb(8, 8, 48); 
+        color: aliceblue;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    header {
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 0px 20px 0px 20px;
+        /*background-color: rgb(49, 63, 108);*/
+        color: aliceblue;
+        box-shadow: 0px 5px 10px 1px black;
+    }
+
+    .logo {
+        color: aliceblue;
+    }
+
+    .nav-links {
+        display: flex; 
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 70%;
+        color: aliceblue;
+        font-size: larger;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: aliceblue;
+    }
+
+    .nav-links a {
+        color: aliceblue;
+    }
+
+    .Controls {
+        background-color: rgb(49, 63, 108);
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 1px 3px black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-between;
+        align-items: center;
+    }
+
+    .Controls select {
+        padding: 3px;
+        border-radius: 5px;
+    }
+
+    .Controls button {
+        padding: 5px 10px 5px 10px;
+        background-color: rgb(189, 223, 255);
+        color: black;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size:medium;
+        font-weight: 550;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 1px 2px black;
+        cursor: pointer;
+    }
+
+    .Key-Metrics ul{
+        list-style: none;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+    }
+
+    .Key-Metrics ul li {
+        padding: 10px;
+        background-color: rgb(49, 63, 108);
+        border-radius: 10px;
+        box-shadow: 0px 1px 3px black;
+        font-weight: bold;
+    }
+
+    .Charts {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: space-between;
+        gap: 10px;
+        margin: 20px;
+    }
+
+    .Charts div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: rgb(49, 63, 108);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 1px 3px black;
+        width: 29%;
+        height: 300px;
+    }
+
+    .Charts strong {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 15pt;
+        border-bottom: 2px solid rgb(85, 98, 143);
+        padding-bottom: 5px;
+    }
+
+  </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">CustomName</h1>
+        <nav class="nav-links">
+            <a href="">Home</a>
+            <a href="">Dashboard</a>
+            <a href="">About</a>
+            <a href="">Try Out the Model Now</a>
+            <a href=""><img src="darkmode.png" width="25px"></a>
+        </nav>
+    </header>
+    <div class="Controls">
+        <div>
+            <strong>Data Range</strong>
+            &nbsp;
+            <select>
+                <option>Last Week</option>
+                <option>Last Month</option>
+                <option>Last Three Months</option>
+                <option>Custom</option>
+            </select>
+        </div>
+        <button>Refresh Data</button>
+    </div>
+
+    <div class="Key-Metrics">
+        <ul>
+            <li>Total Users
+            </li>
+            <li>Request Volume</li>
+            <li>Responce Time</li>
+            <li>Error Rate</li>
+            <li>Cost Metrics or Resource Utilization</li>
+            <li>Uptime Percentage</li>
+        </ul>
+    </div>
+
+    <div class="Charts">
+        <!-- 1. Request Volume Time Series (Line Chart) -->
+        <div>
+            <strong>User Activity</strong>
+            <canvas id="RequestVolume"></canvas>
+        </div>
+        <!-- Also Time Series chart-->
+        <!-- 2. Peak Usage Times (Bar Chart)-->
+        <div>
+            <strong>Peak Usage Times</strong>
+            <canvas id="PeakUsage"></canvas>
+        </div>
+        <!-- 3. Error Rates (Line Chart) -->
+        <div>
+            <strong>Error Rates</strong>
+            <canvas id="ErrorRates"></canvas>
+        </div>
+
+        <!-- 4. User Types (Pie Chart) -->
+        <div>
+            <strong>User Types</strong>
+            <canvas id="UserTypes"></canvas>
+        </div>
+
+        <!-- Model Evaluation Metrics-->
+        <!-- 5. Confusion Matrix (Table)-->
+        <div>
+            <strong>Confusion Matrix</strong>
+        </div>
+        <!-- 6. ROC Curve (Line Chart)-->
+        <div>
+            <strong>ROC Curve</strong>
+        </div>
+        <!-- 7. Model Accuracy (Line Chart)-->
+        <!-- OR training vs real data-->
+        <div>
+            <strong>Model Accuracy (Training vs Testing)</strong>
+            <canvas id="ModelAccuracy"></canvas>
+        </div>
+
+        <!-- 8. Feature Importance (Polar Area Chart)-->
+        <!-- features/inputs that impact model decisions -->
+        <div>
+            <strong>Feature Importance Plot</strong>
+            <canvas id="FeaturePlot"></canvas>
+        </div>
+        <!-- bar chart for model accuracy? maybe not needed -->
+        <div>
+            <strong>Version Comparison Chart</strong>
+        </div>
+        <!-- To be discussed, however, no known model like ours... also maybe not needed-->
+        <div>
+            <strong>Benchmark Results</strong>
+        </div>
+
+    </div>
+
+    <footer>
+
+    </footer>
+
+    <!-- ?? -->
+    <script src="dashboard.js"></script>
+</body>
+</html>
