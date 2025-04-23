@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materna: Home</title>
+    <link rel="stylesheet" href="../styles/background.css">
+    <link rel="stylesheet" href="../styles/homepages.css">
+    <style>
+        .alert {
+            color: var(--coral);
+        }
+        
+        .system-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .metric-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+            border-top: 3px solid var(--light-blue);
+        }
+        
+        .metric-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+        
+        .metric-label {
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        button {
+            padding: 10px 15px;
+            color: white;
+            font-size: medium;
+            font-weight: 550;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .button-primary {
+            background-color: var(--coral);
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="../static/logo.png" alt="Materna logo" height="60px">
+                <h2 class="brand"><span class="logo">Materna:</span> Fetal PCB Prediction Tool</h2>
+            </div>
+            <div class="user-info">
+                <div>
+                    <div class="user-name">Ms. Durrah Haseeb</div>
+                    <div class="user-role">Chief Administrator</div>
+                </div>
+                <img src="../static/user.png" alt="User Icon" width="40px">
+            </div>
+        </header>
+        <nav class="nav-links">
+            <a href="home.html" class="active">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="accounts.html">Accounts Manager</a>
+            <a href="reports.html">Reports</a>
+            <a href=""><img src="../static/lightmode.png" width="25px"></a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="welcome-banner">
+            <div class="welcome-text">
+                <h1>Welcome, Durrah</h1>
+                <p>Today is Tuesday, April 22, 2025 | Last login: Today at 8:15 AM</p>
+            </div>
+            <button class="button-primary">Check System Health</button>
+        </div>
+
+        <div class="system-metrics">
+            <div class="metric-card">
+                <div class="metric-value">99.92%</div>
+                <div class="metric-label">System Uptime</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">78.6%</div>
+                <div class="metric-label">CPU Usage</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">65.4%</div>
+                <div class="metric-label">Memory Usage</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">2.34%</div>
+                <div class="metric-label">Error Rate</div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <div class="section-title">Quick Actions</div>
+            <div class="action-grid">
+                <div class="action-card" id="dashboard">
+                    <div class="icon">📊</div>
+                    <h3>System Dashboard</h3>
+                    <p>View detailed analytics</p>
+                </div>
+                <div class="action-card" id="accounts">
+                    <div class="icon">👥</div>
+                    <h3>User Accounts</h3>
+                    <p>Manage system users</p>
+                </div>
+                <div class="action-card" id="reports">
+                    <div class="icon">🔔</div>
+                    <h3>Review Reports</h3>
+                    <p>Check new issue reports</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent-activities">
+            <div class="section-title">Recent System Activities</div>
+            <div class="activity-item">
+                <div class="activity-time">Today, 9:05 AM</div>
+                <div class="activity-desc">
+                    <p class="alert">New critical report: <span class="highlight">Database connection timeout (R-1037)</span></p>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-time">Today, 8:50 AM</div>
+                <div class="activity-desc">
+                    <p>User account created for <span class="highlight">Dr. Nadim Al-Faris</span></p>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-time">Today, 8:30 AM</div>
+                <div class="activity-desc">
+                    <p>Daily database backup completed successfully</p>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-time">Apr 21, 4:45 PM</div>
+                <div class="activity-desc">
+                    <p>System update <span class="highlight">v2.4.1</span> deployed successfully</p>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-time">Apr 21, 2:30 PM</div>
+                <div class="activity-desc">
+                    <p>Resolved report: <span class="highlight">UI improvement suggestions (R-1031)</span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        Administration portal for Fetal PCB Prediction Tool.
+        <br><br>
+        © 2025 . All rights reserved to PCBeers.
+    </footer>
+
+    <script>
+        window.addEventListener("load", start, false);
+
+        function start() {
+            // Fetch dashboard button id
+            const dashboardBtn = document.getElementById("dashboard");
+            // Fetch accounts button id 
+            const accountsBtn = document.getElementById("accounts");
+            // Fetch reports button id
+            const reportsBtn = document.getElementById("reports");
+
+            // Add event listener to dashboard button
+            dashboardBtn.addEventListener("click", function() {
+                // Redirect to dashboard page
+                window.location.href = "dashboard.html";
+            }, false);
+            // Add event listener to accounts button
+            accountsBtn.addEventListener("click", function() {
+                // Redirect to accounts page
+                // !- not implemented yet -!
+                window.location.href = "accounts.html";
+            }, false);
+            // Add event listener to reports button
+            reportsBtn.addEventListener("click", function() {
+                // Redirect to reports page
+                window.location.href = "reports.html";
+            }, false);
+        }
+    </script>
+</body>
+</html>

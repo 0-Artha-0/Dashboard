@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materna: Home</title>
+    <link rel="stylesheet" href="../styles/background.css">
+    <link rel="stylesheet" href="../styles/homepages.css">
+
+    <style>
+        .recent-activities {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .activity-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .activity-time {
+            min-width: 100px;
+            color: var(--dark-blue);
+            font-weight: 500;
+        }
+        
+        .activity-desc {
+            flex: 1;
+        }
+        
+        .activity-desc p {
+            margin: 0;
+        }
+        
+        .activity-desc .activity-patient {
+            font-weight: bold;
+        }
+        
+        .lab-metrics {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .metric-card {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            background-color: var(--mint);
+            border-left: 4px solid var(--dark-blue);
+        }
+        
+        .metric-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+        
+        .pending-tests {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .test-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .test-item:last-child {
+            border-bottom: none;
+        }
+        
+        .test-patient {
+            font-weight: bold;
+        }
+        
+        .test-info {
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 14px;
+        }
+        
+        .test-priority {
+            color: var(--dark-blue);
+            font-weight: 500;
+        }
+        
+        .priority-high {
+            color: var(--coral);
+        }
+        
+        button {
+            padding: 10px 15px;
+            color: white;
+            font-size: medium;
+            font-weight: 550;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .button-primary {
+            background-color: var(--coral);
+        }
+        
+        .button-secondary {
+            background-color: var(--dark-blue);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--light-blue);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="../static/logo.png" alt="Materna logo" height="60px">
+                <h2 class="brand"><span class="logo">Materna:</span> Fetal PCB Prediction Tool</h2>
+            </div>
+            <div class="user-info">
+                <div>
+                    <div class="user-name">Waleed Rami</div>
+                    <div class="user-role">Lab Administrator</div>
+                </div>
+                <img src="../static/user.png" alt="User Icon" width="40px">
+            </div>
+        </header>
+        <nav class="nav-links">
+            <a href="home.html" class="active">Home</a>
+            <a href="results.html">Lab Results</a>
+            <a href="requests.html">Test Requests</a>
+            <a href="reports.html">Reports</a>
+            <a href="support.html">Support</a>
+            <a href=""><img src="../static/lightmode.png" width="25px"></a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="welcome-banner">
+            <div class="welcome-text">
+                <h1>Welcome, Mr. Waleed</h1>
+                <p>Today is Tuesday, April 22, 2025</p>
+            </div>
+            <button class="button-primary">Lab Status Report</button>
+        </div>
+
+        <div class="quick-actions">
+            <div class="section-title">Quick Actions</div>
+            <div class="action-grid">
+                <div class="action-card" onclick="window.location.href='results.html';">
+                    <div class="icon">✅</div>
+                    <h3>Verify Results</h3>
+                    <p>Review and approve</p>
+                </div>
+                <div class="action-card" onclick="window.location.href='requests.html';">
+                    <div class="icon">⏳</div>
+                    <h3>Test Queue</h3>
+                    <p>Manage pending tests</p>
+                </div>
+                <div class="action-card" onclick="window.location.href='reports.html';">
+                    <div class="icon">📋</div>
+                    <h3>Check Reports</h3>
+                    <p>View Reports from Physicians</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-container">
+            <div class="recent-activities">
+                <div class="section-title">Recent Activities</div>
+                <div class="activity-item">
+                    <div class="activity-time">Today, 9:15 AM</div>
+                    <div class="activity-desc">
+                        <p>Processed PCB test for <span class="activity-patient">Salma Omar (P-24501)</span></p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-time">Today, 8:30 AM</div>
+                    <div class="activity-desc">
+                        <p>Flagged critical result for <span class="activity-patient">Amina Jameel (P-24502)</span></p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-time">Today, 8:10 AM</div>
+                    <div class="activity-desc">
+                        <p>Verified results for <span class="activity-patient">Mariam Hadi (P-24503)</span></p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-time">Apr 21, 4:45 PM</div>
+                    <div class="activity-desc">
+                        <p>Completed quality control checks on PCB testing equipment</p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-time">Apr 21, 3:20 PM</div>
+                    <div class="activity-desc">
+                        <p>Processed test samples for <span class="activity-patient">Susan Nader (P-24504)</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pending-tests">
+                <div class="section-title">Priority Test Queue</div>
+                <div class="test-item">
+                    <div>
+                        <div class="test-patient">Tayba Saeed</div>
+                        <div class="test-info">P-24505 • Blood Serum</div>
+                    </div>
+                    <div class="test-priority priority-high">High Priority</div>
+                </div>
+                <div class="test-item">
+                    <div>
+                        <div class="test-patient">Reem Falih</div>
+                        <div class="test-info">P-24510 • Blood Serum</div>
+                    </div>
+                    <div class="test-priority priority-high">High Priority</div>
+                </div>
+                <div class="test-item">
+                    <div>
+                        <div class="test-patient">Lamya Zaki</div>
+                        <div class="test-info">P-24514 • Tissue Sample</div>
+                    </div>
+                    <div class="test-priority">Standard</div>
+                </div>
+                <div class="test-item">
+                    <div>
+                        <div class="test-patient">Sarah Khalid</div>
+                        <div class="test-info">P-24518 • Blood Serum</div>
+                    </div>
+                    <div class="test-priority">Standard</div>
+                </div>
+                <div style="text-align: center; margin-top: 15px;">
+                    <button class="button-secondary">View Full Queue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        Labratory Administrator portal for the Fetal PCB Prediction Tool. All testing should be performed according to standardized protocols. Critical values should be immediately informed to the attending physician for appropriate clinical intervention.
+        <br><br>
+        © 2025 . All rights reserved to PCBeers.
+    </footer>
+</body>
+</html>

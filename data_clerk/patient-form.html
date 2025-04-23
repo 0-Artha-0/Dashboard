@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materna: New Patient Record</title>
+    <link rel="stylesheet" href="../styles/background.css">
+
+    <style>
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: var(--light-blue);
+            color: var(--navy);
+            border-radius: 10px;
+            border-bottom: 2px solid rgba(85, 98, 143, 0.7);
+        }
+        
+        .controls-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .controls-subtitle {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        button {
+            padding: 10px 15px;
+            color: white;
+            font-size: medium;
+            font-weight: 550;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .button-primary {
+            background-color: var(--coral);
+        }
+        
+        .button-secondary {
+            background-color: var(--dark-blue);
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--navy);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .form-textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            min-height: 100px;
+        }
+        
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .file-upload {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="../static/logo.png" alt="Materna logo" height="60px">
+                <h2 class="brand"><span class="logo">Materna:</span> Fetal PCB Prediction Tool</h2>
+            </div>
+            <div class="user-info">
+                <div>
+                    <div class="user-name">Hassan Ahmad</div>
+                    <div class="user-role">Data Recieptionist</div>
+                </div>
+                <img src="../static/user.png" alt="User Icon" width="40px">
+            </div>
+        </header>
+        <nav class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="patients.html" class="active">Patients</a>
+            <a href="appointments.html">Appointments</a>
+            <a href="support.html">Support</a>
+            <a href=""><img src="../static/lightmode.png" width="25px"></a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="controls">
+            <div>
+                <div class="controls-title">Patient Data Entry</div>
+                <div class="controls-subtitle">Enter patient information for PCB risk assessment</div>
+            </div>
+            <div class="action-buttons">
+                <button class="button-secondary" onclick="location.href='patients.html'">Cancel</button>
+                <button class="button-primary">Save Patient Data</button>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="form-section">
+                <div class="section-title">Patient Information</div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Patient ID</label>
+                        <input type="text" class="form-input" placeholder="e.g. P-24510">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="First and Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date of Birth</label>
+                        <input type="date" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Age</label>
+                        <input type="number" class="form-input" placeholder="Age in years">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Gestational Age</label>
+                        <input type="number" class="form-input" placeholder="Number of weeks">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Due Date</label>
+                        <input type="date" class="form-input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="section-title">Dietary Information</div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Sum of Dairy Products (servings per week)</label>
+                        <input type="number" class="form-input" placeholder="0-30">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Cups of Tea (per day)</label>
+                        <input type="number" class="form-input" placeholder="0-10">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Meat Consumption (servings per week)</label>
+                        <input type="number" class="form-input" placeholder="0-20">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Eggs (per week)</label>
+                        <input type="number" class="form-input" placeholder="0-15">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Fish Dishes (per week)</label>
+                        <input type="number" class="form-input" placeholder="0-10">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="section-title">Lifestyle & Education</div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Maternal Education</label>
+                        <select class="form-input">
+                            <option>Select education level</option>
+                            <option>Less than 9 years of primary School</option>
+                            <option>primary School</option>
+                            <option>High School</option>
+                            <option>Bachelor's Degree</option>
+                            <option>Master's Degree</option>
+                            <option>Doctoral Degree</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Smoking Status</label>
+                        <select class="form-input">
+                            <option>Select status</option>
+                            <option>No</option>
+                            <option>Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Alcohol Consumption</label>
+                        <select class="form-input">
+                            <option>Select level</option>
+                            <option>No alcohol at all</option>
+                            <option>A few times during pregnancy</option>
+                            <option>Monthly</option>
+                            <option>Weekly</option>
+                            <option>Several times a week</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="section-title">Environment Information</div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Chemical Exposure</label>
+                        <select class="form-input">
+                            <option>Select Exposure Time</option>
+                            <option>No</option>
+                            <option>Yes (Before Pregnancy)</option>
+                            <option>Yes (During Pregnancy)</option>
+                            <option>Yes (Before & During Pregnancy)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="section-title">Additional Information</div>
+                <div class="form-group">
+                    <label class="form-label">Notes</label>
+                    <textarea class="form-textarea" placeholder="Enter any additional information or observations"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Upload Patient Documents</label>
+                    <input type="file" class="file-upload" multiple>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="consent">
+                    <label for="consent">Patient has provided consent for data collection and analysis</label>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="complete">
+                    <label for="complete">Mark patient record as complete</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons" style="justify-content: center; margin: 20px 0;">
+            <button class="button-secondary">Cancel</button>
+            <button class="button-primary">Save Patient Data</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        Data Receptionist portal for the Fetal PCB Prediction Tool. All patient information entered is confidential and protected under privacy policies. Please ensure accuracy and completeness of all records.
+        <br><br>
+        © 2025 . All rights reserved to PCBeers.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materna: Dashboard</title>
+  <!-- Include Chart.js from CDNv-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../styles/background.css">
+  
+</head>
+<body>
+    <div class="header-container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="../static/logo.png" alt="Materna logo" height="60px">
+                <h2 class="brand"><span class="logo">Materna:</span> Fetal PCB Prediction Tool</h2>
+            </div>
+            <div class="user-info">
+                <div>
+                    <div class="user-name">Ms. Durrah Haseeb</div>
+                    <div class="user-role">Chief Administrator</div>
+                </div>
+                <img src="../static/user.png" alt="User Icon" width="40px">
+            </div>
+        </header>
+        <nav class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="accounts.html">Accounts Manager</a>
+            <a href="reports.html">Reports</a>
+            <a href=""><img src="../static/lightmode.png" width="25px"></a>
+        </nav>
+    </div>
+    
+    <div class="content">
+        <div class="Controls">
+            <div>
+                <span class="Controls-title">Data Range</span>
+                &nbsp;
+                <select id="rangeOptions">
+                    <option value="week">Last Week</option>
+                    <option value="month">Last Month</option>
+                    <option value="threemonths">Last Three Months</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <div id="dateRange" style="margin-top: 5px;"></div>
+            </div>
+            
+            <button id="refresh" class="button-primary">Refresh Data</button>
+        </div>
+    
+        <div class="Key-Metrics">
+            <h3 class="subheadings">Key Metrics</h3>
+            <ul>
+                <li> System availability
+                    <div class="content">
+                        <h2>99.4%</h2>
+                    </div>
+                </li>
+                <li>Security incidents
+                    <div class="content">
+                        <h2>7 monthly</h2>
+                    </div>
+                </li>
+                <li>Support performance
+                    <div class="content">
+                        <h2>14.3 minutes average</h2>
+                    </div>
+                </li>
+                <li>Error Rate
+                    <div class="content">
+                        <h2>2.34%</h2>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="Charts">
+            <h3 class="subheadings">Key Charts</h3>
+            <div class="chart-container">
+                <!-- 1. Request Volume Time Series (Line Chart) -->
+                <div>
+                    <strong>User Activity</strong>
+                    <canvas id="RequestVolume"></canvas>
+                </div>
+        
+                <!-- Model Evaluation Metrics-->
+                <!-- 4. Error Metrics (Bar)-->
+                <div>
+                    <strong>Error Comparison Metrics</strong>
+                    <canvas id="ErrorMetrics"></canvas>
+                </div>
+                <!-- 5. Error Rates (Line Chart) -->
+                <div>
+                    <strong>Error Rates</strong>
+                    <canvas id="ErrorRates"></canvas>
+                </div>
+                <!-- 6. Model Accuracy (Line Chart)-->
+                <!-- OR training vs real data-->
+                <div>
+                    <strong>Model Accuracy (Training vs Testing)</strong>
+                    <canvas id="ModelAccuracy"></canvas>
+                </div>
+        
+                <!-- 7. Feature Importance (Polar Area Chart)-->
+                <!-- features/inputs that impact model decisions -->
+                <div>
+                    <strong>Feature Importance Plot</strong>
+                    <canvas id="FeaturePlot"></canvas>
+                </div>
+                
+                <!-- 9. PCBs Importance Chart -->
+                <div>
+                    <strong>PCBs Importance Chart</strong>
+                    <canvas id="PCBsPlot"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        Administration portal for Fetal PCB Prediction Tool.
+        <br><br>
+        © 2025 . All rights reserved to PCBeers.
+    </footer>
+    
+    <script src="../scripts/dashboard.js"></script>
+</body>
+</html>

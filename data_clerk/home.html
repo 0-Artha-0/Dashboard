@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materna: Home</title>
+    <link rel="stylesheet" href="../styles/background.css">
+    <link rel="stylesheet" href="../styles/homepages.css">
+
+    <style>
+        .status-summary {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stat-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .stat-text {
+            flex: 1;
+        }
+        
+        .stat-text h4 {
+            margin: 0 0 5px 0;
+            color: var(--navy);
+        }
+        
+        .stat-text p {
+            margin: 0;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.7);
+        }
+        
+        button {
+            padding: 10px 15px;
+            color: white;
+            font-size: medium;
+            font-weight: 550;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .button-primary {
+            background-color: var(--coral);
+        }
+    </style>
+</head>
+<body>
+       <div class="header-container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="../static/logo.png" alt="Materna logo" height="60px">
+                <h2 class="brand"><span class="logo">Materna:</span> Fetal PCB Prediction Tool</h2>
+            </div>
+            <div class="user-info">
+                <div>
+                    <div class="user-name">Hassan Ahmad</div>
+                    <div class="user-role">Data Recieptionist</div>
+                </div>
+                <img src="../static/user.png" alt="User Icon" width="40px">
+            </div>
+        </header>
+        <nav class="nav-links">
+            <a href="home.html" class="active">Home</a>
+            <a href="patients.html">Patients</a>
+            <a href="appointments.html">Appointments</a>
+            <a href="support.html">Support</a>
+            <a href=""><img src="../static/lightmode.png" width="25px"></a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="welcome-banner">
+            <div class="welcome-text">
+                <h1>Welcome, Ahmad</h1>
+                <p>Today is Tuesday, April 22, 2025</p>
+            </div>
+            <button class="button-primary">Daily Tasks</button>
+        </div>
+
+        <div class="quick-actions">
+            <div class="section-title">Quick Actions</div>
+            <div class="action-grid">
+                <div class="action-card" onclick="location.href='patient-form.html';">
+                    <div class="icon">📋</div>
+                    <h3>Register Patient</h3>
+                    <p>Add a new patient record</p>
+                </div>
+                <div class="action-card" onclick="location.href='patients.html';">
+                    <div class="icon">🔄</div>
+                    <h3>Update Records</h3>
+                    <p>Modify existing patient data</p>
+                </div>
+                <div class="action-card" onclick="location.href='appointments.html';">
+                    <div class="icon">📅</div>
+                    <h3>Schedule Appointment</h3>
+                    <p>Manage patient appointments</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-container">
+            <div class="recent-activities">
+                <div class="section-title">Recent Activities</div>
+                <div class="activity-item">
+                    <div class="activity-time">Today, 9:15 AM</div>
+                    <div class="activity-desc">
+                        <p>Updated dietary information for <span class="activity-patient">Amina Jameel (P-24501)</span></p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-time">Today, 8:50 AM</div>
+                    <div class="activity-desc">
+                        <p>Registered new patient <span class="activity-patient">Asia Khalil (P-24507)</span></p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-time">Apr 21, 4:30 PM</div>
+                    <div class="activity-desc">
+                        <p>Updated appointments for <span class="activity-patient">Amina Jameel (P-24502)</span></p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-time">Apr 21, 2:15 PM</div>
+                    <div class="activity-desc">
+                        <p>Added lifestyle information for <span class="activity-patient">Mariam Hadi (P-24503)</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="status-summary">
+                <div class="section-title">Status Summary</div>
+                <div class="stat-item">
+                    <div class="stat-icon">12</div>
+                    <div class="stat-text">
+                        <h4>Incomplete Records</h4>
+                        <p>Need additional information</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">8</div>
+                    <div class="stat-text">
+                        <h4>Today's Appointments</h4>
+                        <p>Patients scheduled for today</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">23</div>
+                    <div class="stat-text">
+                        <h4>Updates Needed</h4>
+                        <p>Records requiring updates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        Data Receptionist portal for the Fetal PCB Prediction Tool. All patient information entered is confidential and protected under privacy policies. Please ensure accuracy and completeness of all records.
+        <br><br>
+        © 2025 . All rights reserved to PCBeers.
+    </footer>
+</body>
+</html>

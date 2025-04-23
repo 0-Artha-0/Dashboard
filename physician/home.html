@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materna: Home</title>
+    <link rel="stylesheet" href="../styles/background.css">
+    <link rel="stylesheet" href="../styles/homepages.css">
+    <style>
+        .upcoming-appointments {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .appointment-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .appointment-item:last-child {
+            border-bottom: none;
+        }
+        
+        .appointment-patient {
+            font-weight: bold;
+        }
+        
+        .appointment-info {
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 14px;
+        }
+        
+        .appointment-time {
+            color: var(--dark-blue);
+            font-weight: 500;
+        }
+        
+        button {
+            padding: 10px 15px;
+            color: white;
+            font-size: medium;
+            font-weight: 550;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .button-primary {
+            background-color: var(--coral);
+        }
+        
+        .button-secondary {
+            background-color: var(--dark-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="../static/logo.png" alt="Materna logo" height="60px">
+                <h2 class="brand"><span class="logo">Materna:</span> Fetal PCB Prediction Tool</h2>
+            </div>
+            <div class="user-info">
+                <div>
+                    <div class="user-name">Dr. Fatima Abubaker</div>
+                    <div class="user-role">Physician</div>
+                </div>
+                <img src="../static/user.png" alt="User Icon" width="40px">
+            </div>
+        </header>
+        <nav class="nav-links">
+            <a href="home.html" class="active">Home</a>
+            <a href="patients.html">Patients</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="reports.html">Reports</a>
+            <a href="support.html">Support</a>
+            <a href=""><img src="../static/lightmode.png" width="25px"></a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="welcome-banner">
+            <div class="welcome-text">
+                <h1>Welcome, Dr. Fatima</h1>
+                <p>Today is Tuesday, April 22, 2025</p>
+            </div>
+            <button class="button-primary">View Calendar</button>
+        </div>
+
+        <div class="quick-actions">
+            <div class="section-title">Quick Actions</div>
+            <div class="action-grid">
+                <div class="action-card" onclick="window.location.href='patients.html';">
+                    <div class="icon">🔍</div>
+                    <h3>Search Patients</h3>
+                    <p>Find patient records</p>
+                </div>
+                <div class="action-card" onclick="window.location.href='patients.html';">
+                    <div class="icon">👤</div>
+                    <h3>Patient Assessment</h3>
+                    <p>Create new PCB assessment</p>
+                </div>
+                <div class="action-card" onclick="window.location.href='reports.html';">
+                    <div class="icon">📊</div>
+                    <h3>View Reports</h3>
+                    <p>Analysis and statistics</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-container">
+            <div class="recent-activities">
+                <div class="section-title">Recent Activities</div>
+                <div class="activity-item">
+                    <div class="activity-time">Today, 9:30 AM</div>
+                    <div class="activity-desc">
+                        <p>Completed PCB assessment for <span class="activity-patient">Amina Jameel (P-24502)</span></p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-time">Today, 8:45 AM</div>
+                    <div class="activity-desc">
+                        <p>Reviewed dietary patterns for <span class="activity-patient">Salma Omar (P-24501)</span></p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-time">Apr 21, 4:15 PM</div>
+                    <div class="activity-desc">
+                        <p>Flagged high risk for <span class="activity-patient">Noor Salim (P-24506)</span></p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-time">Apr 21, 2:30 PM</div>
+                    <div class="activity-desc">
+                        <p>Scheduled follow-up for <span class="activity-patient">Susan Nader (P-24504)</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upcoming-appointments">
+                <div class="section-title">Today's Appointments</div>
+                <div class="appointment-item">
+                    <div>
+                        <div class="appointment-patient">Amina Jameel</div>
+                        <div class="appointment-info">P-24502 • Follow-up</div>
+                    </div>
+                    <div class="appointment-time">10:30 AM</div>
+                </div>
+                <div class="appointment-item">
+                    <div>
+                        <div class="appointment-patient">Mariam Hadi</div>
+                        <div class="appointment-info">P-24503 • Assessment</div>
+                    </div>
+                    <div class="appointment-time">11:15 AM</div>
+                </div>
+                <div class="appointment-item">
+                    <div>
+                        <div class="appointment-patient">Tayba Saeed</div>
+                        <div class="appointment-info">P-24505 • Initial</div>
+                    </div>
+                    <div class="appointment-time">1:30 PM</div>
+                </div>
+                <div class="appointment-item">
+                    <div>
+                        <div class="appointment-patient">Noor Salim</div>
+                        <div class="appointment-info">P-24506 • Urgent</div>
+                    </div>
+                    <div class="appointment-time">3:00 PM</div>
+                </div>
+                <div style="text-align: center; margin-top: 15px;">
+                    <button class="button-secondary">View Full Schedule</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        Physician dashboard for managing fetal PCB exposure assessments. 
+        Please use this tool in conjuction with your clinical judgment. 
+        Follow institutional policies.
+        <br><br>
+        © 2025 . All rights reserved to PCBeers.
+    </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materna: Login</title>
+    <link rel="stylesheet" href="styles/background.css">
+    <style>        
+        .content {
+            flex: 1;
+            display: flex;
+        }
+        
+        .login-container {
+            padding: 30px;
+            margin: 20px 0px;
+            width: 100%;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+            border-top: 4px solid var(--light-blue);
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--dark-blue);
+        }
+        
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: var(--navy);
+        }
+        
+        .form-group input, .form-group select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--light-blue);
+        }
+        
+        .login-button {
+            background-color: var(--coral);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .login-button:hover {
+            background-color: #d95a43;
+        }
+        
+        .support-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        .support-link a {
+            color: var(--dark-blue);
+            text-decoration: none;
+        }
+        
+        .support-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="static/logo.png" alt="PCBers logo" height="60px">
+                <h2 class="brand"><span class="logo">Materna:</span> Fetal PCB Prediction Tool</h2>
+            </div>
+        </header>
+        <nav class="nav-links">
+            <a href="login.html" class="active">Login</a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Account Login</h2>
+                <p>Enter your credentials to access the system</p>
+            </div>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-type">User Type</label>
+                    <select id="user-type" name="user-type" required>
+                        <option value="" disabled selected>Select user type</option>
+                        <option value="administrator">Administrator</option>
+                        <option value="physician">Physician</option>
+                        <option value="lab-administrator">Lab Administrator</option>
+                        <option value="data-receptionist">Data Receptionist</option>
+                    </select>
+                </div>
+                <button type="submit" class="login-button" id="login-button">Login</button>
+                <div class="support-link">
+                    <a href="#">Request Support</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        Administration portal for Fetal PCB Prediction Tool.
+        <br><br>
+        © 2025 . All rights reserved. Version 2.4.1
+    </footer>
+
+    <script>
+        window.addEventListener("load", start, false);
+
+        function start() {
+
+            // Fetch login button id
+            const loginButton = document.getElementById("login-button");
+            // Add event listener to login button
+            loginButton.addEventListener("click", function(event) {
+                // prevent default form submission
+                // Important to prevent the form from submitting and refreshing the page
+                event.preventDefault(); 
+
+                const userType = document.getElementById("user-type").value;
+
+                // Check if userType is Administrator
+                if (userType === "administrator") {
+                    // Redirect to admin page
+                    window.location.href = "admin/home.html";
+                } else if (userType === "physician") {
+                    // Redirect to physician page
+                    window.location.href = "physician/home.html";
+                } else if (userType === "lab-administrator") {
+                    // Redirect to lab admin page
+                    window.location.href = "lab_admin/home.html";
+                } else {
+                    // Redirect to data receptionist page
+                    window.location.href = "data_clerk/home.html";
+                }
+            }, false);
+        }
+    </script>
+</body>
+</html>

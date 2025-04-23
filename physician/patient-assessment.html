@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materna: Patient Assessment</title>
+    <link rel="stylesheet" href="../styles/background.css">
+
+    <style>
+        .patient-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .patient-id {
+            color: var(--dark-blue);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 30px 0 15px 0;
+            color: var(--dark-blue);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background-color: white;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--light-blue);
+        }
+        
+        .card-title {
+            font-weight: bold;
+            color: var(--dark-blue);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .card-value {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .assessment-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: bold;
+            color: var(--dark-blue);
+            margin-bottom: 8px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .button {
+            padding: 10px 15px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .button-primary {
+            background-color: var(--coral);
+            color: white;
+        }
+        
+        .button-secondary {
+            background-color: var(--dark-blue);
+            color: white;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="../static/logo.png" alt="Materna logo" height="60px">
+                <h2 class="brand"><span class="logo">Materna:</span> Fetal PCB Prediction Tool</h2>
+            </div>
+            <div class="user-info">
+                <div>
+                    <div class="user-name">Dr. Fatima Abubaker</div>
+                    <div class="user-role">Physician</div>
+                </div>
+                <img src="../static/user.png" alt="User Icon" width="40px">
+            </div>
+        </header>
+        <nav class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="patients.html" class="active">Patients</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="reports.html">Reports</a>
+            <a href="support.html">Support</a>
+            <a href=""><img src="../static/lightmode.png" width="25px"></a>
+        </nav>
+    </div>
+    
+    <div class="content">
+        <div class="Controls">
+            <div>
+                <div class="patient-name">Amina Jameel</div>
+                <div class="patient-id">Patient ID: P-24502</div>
+            </div>
+            <div>
+                <button class="button-secondary" onclick="location.href='patient-profile.html';">Back to Patient</button>
+            </div>
+        </div>
+        
+        <div class="section-title">Patient Information</div>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="card-title">Age</div>
+                <div class="card-value">32</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-title">Gestational Age</div>
+                <div class="card-value">18 weeks</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-title">Due Date</div>
+                <div class="card-value">Sep 01, 2025</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-title">Risk Level</div>
+                <div class="card-value">
+                    <span class="risk-badge risk-high">High</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-title">Last Assessment</div>
+                <div class="card-value">Apr 15, 2025</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-title">BMI</div>
+                <div class="card-value">27.4</div>
+            </div>
+        </div>
+        
+        <div class="section-title">Feature Inputs</div>
+        <div class="assessment-form">
+            <div class="form-group" id="imported-data">
+                <button class="button button-secondary" onclick="importData();">Import Maternal Info</button>
+                <small style="margin-left: 10px; color: #777;">Import laboratory data, lifestyle factors, and dietary information</small>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Select Fetus Gender</label>
+                <select class="form-control" placeholder="-- Select Gender --" required>
+                    <option value="" disabled selected hidden>-- Select Gender --</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+            
+            <div class="form-group" required>
+                <label class="form-label" required>Select PCB Type</label>
+                <select class="form-control">
+                    <option value="" disabled selected hidden>-- Select PCB Type --</option>
+                    <option value="type-a">PCB118</option>
+                    <option value="type-b">PCB156</option>
+                    <option value="type-c">PCB28</option>
+                    <option value="type-d">PCB52</option>
+                    <option value="type-e">PCB101</option>
+                    <option value="type-f">PCB138</option>
+                    <option value="type-g">PCB153</option> 
+                    <option value="type-h">PCB180</option>
+                    <option value="type-i">PCB74</option>
+                    <option value="type-j">PCB99</option>
+                    <option value="type-k">PCB187</option>
+                    <option value="type-l">PCB183</option>
+                    <option value="type-m">PCB170</option>
+
+                </select>
+            </div>
+            
+            <div class="form-group" style="margin-top: 30px; text-align: center;">
+                <button class="button button-primary" style="padding: 12px 24px; 
+                    font-size: 16px;" onclick="location.href='prediction.html'">Estimate Fetal PCB Exposure</button>
+            </div>
+        </div>
+        
+        <div class="section-title">Assessment Notes</div>
+        <div class="info-card">
+            <div class="form-group">
+                <label class="form-label">Additional Observations</label>
+                <textarea class="form-control" rows="4" placeholder="Enter any additional notes or observations..."></textarea>
+            </div>
+            
+            <div style="text-align: right; margin-top: 15px;">
+                <button class="button button-secondary">Save Notes</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        Physician dashboard for managing fetal PCB exposure assessments. 
+        Please use this tool in conjuction with your clinical judgment. 
+        Follow institutional policies.
+        <br><br>
+        © 2025 . All rights reserved to PCBeers.
+    </div>
+
+    <script>
+        function importData() {
+            // Function to handle import button click
+            const importedData = document.getElementById('imported-data');
+            const importButton = importedData.innerHTML
+            importedData.innerHTML = importButton + `
+                <br><br>
+                <div class="info-grid">
+                    <div class="info-card">
+                    <div class="card-title">Smoking Status</div>
+                        <div class="card-value status-2">Yes (1)</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-title">Alcohol Consumption</div>
+                        <div class="card-value status-2">A few times during pregnancy (2)</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-title">Number of Fish Dishes</div>
+                        <div class="card-value">3 times a week (4)</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-title">Beef/Pork Consumption</div>
+                        <div class="card-value status-2">3 times a month (2)</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-title">Cups of Coffee/Tea</div>
+                        <div class="card-value">2 times a day (7)</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-title">Domestic Sea Salmon</div>
+                        <div class="card-value">Weekly (3)</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-title">Rainbow Trout/Norwegian Salmon</div>
+                        <div class="card-value">2 times a month (2)</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-title">Sum of Dairy Products</div>
+                        <div class="card-value">Once a day (6)</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-title">Eggs</div>
+                        <div class="card-value">5 times a week (5)</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-title">Chemical Exposure</div>
+                        <div class="card-value status-3">Yes (During Pregnancy) (3)</div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-title">PCB-28 Concentration</div>
+                        <div class="card-value status-1">2.1 ng/g_lipid</div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-title">PCB-52 Concentration</div>
+                        <div class="card-value status-3">3.7 ng/g_lipid</div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-title">PCB-74 Concentration</div>
+                        <div class="card-value status-1">0.8 ng/g_lipid</div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-title">PCB-118 Concentration</div>
+                        <div class="card-value status-2">2.1 ng/g_lipid</div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-title">PCB-170 Concentration</div>
+                        <div class="card-value status-2">2.5 ng/g_lipid</div>
+                    </div>
+                </div>`
+        };
+    </script>
+</body>
+</html>
