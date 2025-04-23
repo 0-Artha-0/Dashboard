@@ -110,7 +110,7 @@
                 <h2>Account Login</h2>
                 <p>Enter your credentials to access the system</p>
             </div>
-            <form class="login-form">
+            <form class="login-form" id="login-form">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
@@ -129,7 +129,7 @@
                         <option value="data-receptionist">Data Receptionist</option>
                     </select>
                 </div>
-                <button type="submit" class="login-button" id="login-button">Login</button>
+                <button type="submit" class="login-button">Login</button>
                 <div class="support-link">
                     <a href="#">Request Support</a>
                 </div>
@@ -148,10 +148,17 @@
 
         function start() {
 
-            // Fetch login button id
-            const loginButton = document.getElementById("login-button");
+            // Fetch login form id
+            const loginForm = document.getElementById("login-form");
+
             // Add event listener to login button
-            loginButton.addEventListener("click", function(event) {
+            loginForm.addEventListener("submit", function(event) {
+                // Important to let the form check required fields otherwise it will ignore it and submit
+                if (!loginForm.checkValidity()) {
+                    // Lets the browser show validation errors
+                    return;
+                }
+
                 // prevent default form submission
                 // Important to prevent the form from submitting and refreshing the page
                 event.preventDefault(); 
