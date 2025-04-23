@@ -23,22 +23,22 @@ function start()
     }, false);
 };
 
-// Sample data - in a real application, you would fetch this from your backend
 const timeLabels = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'];
-//const userLabels = ['Researchers', 'Medical Practionters', 'AI Engineers', 'Others'];
-const errorLabels = ['MAE', 'MSE', 'RMSE', 'R²', 'A-R²', 'MAPE'];
+const errorLabels = ['R²', 'MAE', 'MSE', 'RMSE', 'EVS'];
 const timesLabels = ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30'];
-const featureLabels = ['Maternal PCB', 'Fetal PCB', 'Age', 'Gender', 'BMI', 'Diet', 'Smoking Status', 'Education Lvl'];
+const featureLabels = ['mPCB', 'Age', 'Gender', 'BMI', 'Smoking', 'mEducation','Chemical exposure', 'Tea', 'Coffee',
+    'Alcohol','Diary', 'Beef/pork', 'Eggs', 'Fish dishes', 'norSalmon','domSalmon', 'Lake Fish','Frozen Fish'];
 const PCBsLabels = ['cPCB118', 'cPCB153', 'cPCB138', 'cPCB180',	'cPCB74', 'cPCB99',	'cPCB156', 'cPCB187', 'cPCB183', 'cPCB170'];
 
+// Sample data for charts
 const requestData = [45, 59, 80, 81, 56, 55, 40];
-//const responseTimeData = [120, 132, 101, 134, 90, 230, 120];
-//const userTypesData = [100, 30, 40, 8];
-const errorMetricsData = [3.85, 15.74, 3.97,0.87, 0.85, 12.45];
+// !-- The error metrics reflect real data from our model --!
+const errorMetricsData = [0.8067, 0.0896, 0.0167, 0.1293, 0.8703];
 const errorRateData = [1.2, 0.8, 0.7, 2.5, 1.0, 0.5, 1.8];
 const trainingData = [3.12, 2.98, 2.87, 3.05, 2.91, 2.88, 2.85, 2.92, 2.89, 2.95];
 const testingData = [3.45, 3.32, 3.28, 3.35, 3.38, 3.31, 3.25, 3.30, 3.29, 3.33];
-const featureData = [0.2345, 0.6789, 0.4512, 0.8132, 0.1256, 0.9473, 0.5829, 0.3687];
+// !-- The feature importance reflects real data from our model --!
+const featureData = [0.264, 0.99, 0.27, 0.25, 0.70, 0.58, 0.27, 0.32, 0.58, 0.35, 0.03, 0.88,  0.23, 0.92, 0.08, 0.03, 0.41, 0.47];
 const PCBsData = [0.1267, 0.4432, 0.7845, 0.2984, 0.5678, 0.8712, 0.3359, 0.6541, 0.9248, 0.2135];
 
 // 1. Request Volume Chart
@@ -102,7 +102,7 @@ const requestChart = new Chart(requestCtx, {
     }
 });
 
-// 4. Error Metrics Chart
+// 2. Error Metrics Chart
 const MetricsCtx = document.getElementById('ErrorMetrics').getContext('2d');
 const MetricsChart = new Chart(MetricsCtx, {
     type: 'bar',
@@ -163,7 +163,7 @@ const MetricsChart = new Chart(MetricsCtx, {
     }
 });
 
-// 5. Error Rates Chart
+// 3. Error Rates Chart
 // should be contructed against days****
 const errorCtx = document.getElementById('ErrorRates').getContext('2d');
 const errorChart = new Chart(errorCtx, {
@@ -223,7 +223,7 @@ const errorChart = new Chart(errorCtx, {
     }
 });
 
-// 6. Model Accuracy Chart Chart
+// 4. Model Accuracy Chart
 const AccuracyCtx = document.getElementById('ModelAccuracy').getContext('2d');
 const AccuracyChart = new Chart(AccuracyCtx, {
     type: 'line',
@@ -288,19 +288,23 @@ const AccuracyChart = new Chart(AccuracyCtx, {
     }
 });
 
-// 7. Feature Importance Chart
+// 5. Feature Importance Chart
 const FeatureCtx = document.getElementById('FeaturePlot').getContext('2d');
 const FeatureChart = new Chart(FeatureCtx, {
-    type: 'polarArea',
+    type: 'pie',
     data: {
         labels: featureLabels,
         datasets: [{
             label: 'Average Response Time (ms)',
             data: featureData,
             backgroundColor: ['rgb(118, 181, 0)', 'rgb(1, 153, 95)', 'rgb(0, 59, 178)', 'rgb(255, 135, 83)', 
-                'rgb(255, 251, 3)', 'rgb(153, 1, 80)', 'rgb(102, 13, 110)', 'rgb(255, 70, 70)'],
+                'rgb(255, 251, 3)', 'rgb(153, 1, 80)', 'rgb(102, 13, 110)', 'rgb(255, 70, 70)', 'rgb(200, 123, 50)',
+                'rgb(255, 0, 0)', 'rgb(0, 255, 0)', 'rgb(0, 0, 255)', 'rgb(255, 165, 0)', 'rgb(0, 255, 255)',
+                'rgb(255, 0, 255)', 'rgb(75, 0, 130)', 'rgb(255, 20, 147)', 'rgb(218, 112, 214)'],
             borderColor: ['rgb(118, 181, 0)', 'rgb(1, 153, 95)', 'rgb(0, 59, 178)', 'rgb(255, 135, 83)', 
-                'rgb(255, 251, 3)', 'rgb(153, 1, 80)', 'rgb(102, 13, 110)', 'rgb(255, 70, 70)'],
+                'rgb(255, 251, 3)', 'rgb(153, 1, 80)', 'rgb(102, 13, 110)', 'rgb(255, 70, 70)', 'rgb(200, 123, 50)',
+                'rgb(255, 0, 0)', 'rgb(0, 255, 0)', 'rgb(0, 0, 255)', 'rgb(255, 165, 0)', 'rgb(0, 255, 255)',
+                'rgb(255, 0, 255)', 'rgb(75, 0, 130)', 'rgb(255, 20, 147)', 'rgb(218, 112, 214)'],
             borderWidth: 2,
             tension: 0.2
         }]
@@ -317,7 +321,7 @@ const FeatureChart = new Chart(FeatureCtx, {
         plugins: {
             title: {
                 display: true,
-                text: 'Response Time Trend',
+                text: 'Feature Importance Percentage',
                 color: '#ef6a51'
             },
             legend: {
@@ -329,10 +333,7 @@ const FeatureChart = new Chart(FeatureCtx, {
     }
 });
 
-// 8. Version Comparison Chart
-
-
-// 9. PCBs Importance Plot (Polar Area Chart)
+// 6. PCBs Importance Plot (Polar Area Chart)
 const PCBsCtx = document.getElementById('PCBsPlot').getContext('2d');
 const PCBsChart = new Chart(PCBsCtx, {
     type: 'polarArea',
@@ -361,7 +362,7 @@ const PCBsChart = new Chart(PCBsCtx, {
         plugins: {
             title: {
                 display: true,
-                text: 'Response Time Trend',
+                text: 'PCBs Importance',
                 color: '#ef6a51'
             },
             legend: {
@@ -372,5 +373,3 @@ const PCBsChart = new Chart(PCBsCtx, {
         }
     }
 });
-
-// 10. Benchmark Results Chart
